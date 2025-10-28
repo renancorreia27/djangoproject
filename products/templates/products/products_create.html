@@ -3,7 +3,7 @@
 {% block content %}
 <form method='POST'> <!-- Os dados digitados pelo usuário serão enviados ao servidor -->
     {% csrf_token %} <!-- Token de segurança EXIGIDO pelo Django contra ataques CSRF (Cross-Site Request Forgery) -->
-    {{ form.as_p }}
-    <input type="submit" value="Save">
+    {{ form.as_p }} <!-- .as_p = Converte cada campo do formulário em um <p> contendo: o <label> (rótulo do campo) e o <input>-->
+    <input type="submit" value="Save">  <!-- Botão de envio do formulário com nome "Save"-->
 </form>
 {% endblock %}
