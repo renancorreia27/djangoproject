@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+<<<<<<< HEAD
+{% block content %} <!--Permite que páginas filhas sobrescrevam os itens da página principal (devem ter o mesmo nome)-->
+  <h1>About Page</h1>
+  <p>{{ my_text|capfirst }}</p> <!--capfirst deixou a primeira letra maiúscula-->
+  {{ my_html|safe|title}} <!--safe renderiza o contexto para html, e title deixa todas as inicias maiúsculas-->
+=======
+{% block about %} <!--Permite que páginas filhas sobrescrevam os itens da página principal (devem ter o mesmo nome)-->
+  <h1>About Page</h1>
+  <p>{{ my_text }}</p>
+>>>>>>> 7c0c3b90d21e6d8389c65c83029ecb6a6828c71f
+  <p>The number is: {{ my_number }}</p>
+  <p>{{my_list}}</p>
+
+  <ul>
+    {% for item in my_list %} <!--Loop para iterar sobre uma lista-->
+        {% if item == 456 %}
+            <li>
+                {{forloop.counter}} - {{ item|add:10 }} <!--forloop.counter fornece o índice atual do loop-->
+            </li>
+        {% elif item == 123 %}
+            <li>
+<<<<<<< HEAD
+                {{forloop.counter}} - {{ item|add:10 }} 
+            </li>
+        {% else %}
+            <li>
+                {{forloop.counter}} - {{ item }}
+=======
+                {{forloop.counter}} - {{ item|add:10 }} <!--forloop.counter fornece o índice atual do loop-->
+            </li>
+        {% else %}
+            <li>
+                {{forloop.counter}} - {{ item }} <!--forloop.counter fornece o índice atual do loop-->
+>>>>>>> 7c0c3b90d21e6d8389c65c83029ecb6a6828c71f
+            </li>
+        {% endif %}
+    {% endfor %}
+  </ul>
+{% endblock%}
