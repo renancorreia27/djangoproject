@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method='POST'> <!-- Os dados digitados pelo usuário serão enviados ao servidor -->
+    {% csrf_token %} <!-- Token de segurança EXIGIDO pelo Django contra ataques CSRF (Cross-Site Request Forgery) -->
+    {{ form.as_p }}
+    <input type="submit" value="Save">
+</form>
+{% endblock %}

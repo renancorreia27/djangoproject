@@ -17,11 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from pages.views import home_view, about_view # Importa views específicas do app pages
-from products.views import product_detail_view
+from products.views import product_detail_view, product_create_view
 
 urlpatterns = [
-    path('about/', about_view), # O caminho about/ acessa a função about_view que devolve uma página web
-    path('home/', home_view), # O caminho home/ acessa a função home_view que devolve uma página web
-    path('product/', product_detail_view), # O caminho home/ acessa a função home_view que devolve uma página web
+    # Os caminhos name/ acessam suas funções que devolvem páginas web
+    path('about/', about_view),
+    path('home/', home_view),
+    path('create', product_create_view),
+    path('product/', product_detail_view),
     path('admin/', admin.site.urls),
 ]
