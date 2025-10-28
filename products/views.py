@@ -6,9 +6,9 @@ from .forms import ProductForm
 
 def product_create_view(request):
     form = ProductForm(request.POST or None)
-    if form.is_valid():  
+    if request.method == "POST" and form.is_valid():
         form.save()
-        
+
     context = {
         'form': form
     }
