@@ -1,5 +1,4 @@
 from django.shortcuts import render
-<<<<<<< HEAD
 from .models import Product
 
 # Create your views here.
@@ -14,8 +13,4 @@ def product_detail_view(request):
     context = {
         'object': obj
     }
-    return render(request, "product/detail.html", context)
-=======
-
-# Create your views here.
->>>>>>> 7c0c3b90d21e6d8389c65c83029ecb6a6828c71f
+    return render(request, "products/products_detail.html", context)
