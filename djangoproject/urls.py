@@ -21,9 +21,9 @@ from products.views import product_detail_view, product_create_view
 
 urlpatterns = [
     # Os caminhos name/ acessam suas funções que devolvem páginas web
-    path('about/', about_view),
-    path('home/', home_view),
-    path('create', product_create_view),
-    path('product/', product_detail_view),
+    path('about/', about_view, name='about'),
+    path('home/', home_view, name='home'),
+    path('create/', product_create_view, name='create'),
+    path('product/', product_detail_view, name='product'),
     path('admin/', admin.site.urls),
 ]
