@@ -13,6 +13,12 @@ form label {
     margin-bottom: 4px; /* Distância do nome do campo ao input */
 }
 
+.save {
+    display: block;
+    margin: 0 auto; /* centraliza horizontalmente */
+    width: 200px;   /* precisa definir largura */
+}
+
 .form-control { /* Controla os inputs */
     width: 90%;
     padding: 8px;
@@ -38,6 +44,6 @@ form label {
             <input type="text" name="name" id="id_name">
         </p>
     -->
-    <input type="submit" value="Save">  <!-- Botão de envio do formulário com nome "Save"-->
+    <input class ="save" type="submit" value="Save">  <!-- Botão de envio do formulário com nome "Save"-->
 </form>
 {% endblock %}

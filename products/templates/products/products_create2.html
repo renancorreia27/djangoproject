@@ -1,0 +1,11 @@
+{% extends 'base.html' %} {% block content %}
+<form action="." method="POST" autocomplete="off">
+  <!-- Os dados digitados pelo usuário serão enviados ao servidor -->
+  {% csrf_token %}
+  <!-- Token de segurança EXIGIDO pelo Django contra ataques CSRF (Cross-Site Request Forgery) -->
+  <label for="name">Nome: </label>
+  <input type="text" name="title" placeholder="Your title" />
+  <input class="save" type="submit" value="Save" />
+  <!-- Botão de envio do formulário com nome "Save"-->
+</form>
+{% endblock %}
