@@ -21,6 +21,9 @@ class ProductForm(forms.ModelForm):
             }),
         }
 
-# o Django automaticamente o chamará quando o formulário for validado
-def clean_name(self, *args, **kwargs): # clean_<campo>()
-    name = self.cleaned_data.get("name") # cleaned_data → contém os valores já processados e válidos. get("name") → pega o valor do campo name.
+    # o Django automaticamente o chamará quando o formulário for validado
+    def clean_name(self, *args, **kwargs): # clean_<campo>()
+        name = self.cleaned_data.get("name") # cleaned_data → contém os valores já processados e válidos. get("name") → pega o valor do campo name.
+        if not "CFE" in name:
+            raise forms.ValidationError("Isso não é um nome válido!")
+        return name

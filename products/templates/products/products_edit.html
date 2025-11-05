@@ -1,0 +1,47 @@
+{% extends 'base.html' %} {% block content %}
+<style>
+form p {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px; /* Distância de um <p> a outro */
+}
+
+form label {
+    font-weight: bold;
+    margin-bottom: 4px; /* Distância do nome do campo ao input */
+}
+
+.save {
+    display: block;
+    margin: 0 auto; /* centraliza horizontalmente */
+    width: 200px;   /* precisa definir largura */
+}
+
+.form-control { /* Controla os inputs */
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    transition: border-color 0.3s;
+}
+
+/* Quando o usuário clica no campo */
+.form-control:focus{
+    border-color: #007bff;
+    outline: none; /* Retira o contorno padrão do navegador */
+}
+</style>
+
+<form method='POST' autocomplete="off"> <!-- Os dados digitados pelo usuário serão enviados ao servidor -->
+    {% csrf_token %} <!-- Token de segurança EXIGIDO pelo Django contra ataques CSRF (Cross-Site Request Forgery) -->
+    {{ form.as_p }} <!-- .as_p = Converte cada campo do formulário em um <p> contendo: o <label> (rótulo do campo) e o <input>-->
+    <!-- <p>
+            <label for="id_name">Nome:</label>
+            <input type="text" name="name" id="id_name">
+        </p>
+    -->
+    <input class ="save" type="submit" value="Save">  <!-- Botão de envio do formulário com nome "Save"-->
+</form>
+{% endblock %}
