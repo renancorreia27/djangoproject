@@ -23,8 +23,8 @@ urlpatterns = [
     # Os caminhos name/ acessam suas funções que devolvem páginas web
     path('about/', about_view, name='about'),
     path('', home_view, name='home'),
-    path('create/', product_create_view, name='create'),
-    path('product/', product_all_view, name='product'),
-    path('product/edit/<int:product_id>', dynamic_lookup_view, name='edit'),
+    path('product/create/', product_create_view, name='create'),
+    path('product/', product_all_view, name='edit'),
+    path('product/view/<int:product_id>', dynamic_lookup_view, name='view'),
     path('admin/', admin.site.urls),
 ]

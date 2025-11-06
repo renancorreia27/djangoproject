@@ -6,3 +6,6 @@ class Product(models.Model):
     price       = models.DecimalField(decimal_places=2, max_digits=10000)
     description = models.TextField(blank=True, null=True)
     sale        = models.BooleanField(null=True) # Campo obrigatório pois não pode ser nulo
+
+    def get_absolute_url(self):
+        return f"/product/view/{self.id}"

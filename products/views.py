@@ -27,7 +27,7 @@ def dynamic_lookup_view(request, product_id):
         raise Http404
 
     form = ProductForm(request.POST or None,
-                        instance = obj) # instance recebe um objeto já existente do banco
+                        instance = obj) # instance modela um objeto já existente do banco
     if request.method == "POST" and form.is_valid(): # Se o método for POST e o formulário enviado for válido, o Django salva no BD
         form.save()
         form = ProductForm() # Depois de salvar já cria um novo formulário
@@ -35,7 +35,7 @@ def dynamic_lookup_view(request, product_id):
     context = {
         'form': form
     }
-    return render(request, "products/products_edit.html", context)
+    return render(request, "products/products_view.html", context)
 
 def product_all_view(request):
     queryset = Product.objects.all()
