@@ -17,14 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from pages.views import home_view, about_view # Importa views específicas do app pages
-from products.views import product_detail_view, product_create_view, dynamic_lookup_view
+from products.views import product_all_view, product_create_view, dynamic_lookup_view
 
 urlpatterns = [
     # Os caminhos name/ acessam suas funções que devolvem páginas web
     path('about/', about_view, name='about'),
-    path('home/', home_view, name='home'),
+    path('', home_view, name='home'),
     path('create/', product_create_view, name='create'),
-    path('product/<int:product_id>', product_detail_view, name='product'),
+    path('product/', product_all_view, name='product'),
     path('product/edit/<int:product_id>', dynamic_lookup_view, name='edit'),
     path('admin/', admin.site.urls),
 ]
