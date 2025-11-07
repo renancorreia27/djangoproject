@@ -7,5 +7,8 @@ class Product(models.Model):
     description = models.TextField(blank=True, null=True)
     sale        = models.BooleanField(null=True) # Campo obrigatório pois não pode ser nulo
 
-    def get_absolute_url(self):
+    def edit_object(self):
+        return f"/product/edit/{self.id}"
+    
+    def view_object(self):
         return f"/product/view/{self.id}"

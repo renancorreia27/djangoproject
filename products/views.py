@@ -5,6 +5,7 @@ from .forms import ProductForm
 
 # Create your views here.
 
+# View para CRIAR objetos
 def product_create_view(request):
     initial_data = {
         "name": "Name a new product"
@@ -20,6 +21,15 @@ def product_create_view(request):
     }
     return render(request, "products/products_create.html", context)
 
+# View para LISTAR objetos.
+def product_all_view(request):
+    queryset = Product.objects.all()
+    context = {
+        'object_list' : queryset
+    }
+    return render(request, "products/products_all.html", context)
+
+# View para EDITAR objetos
 def dynamic_lookup_view(request, product_id):
     try:
         obj = Product.objects.get(id = product_id)
@@ -35,14 +45,20 @@ def dynamic_lookup_view(request, product_id):
     context = {
         'form': form
     }
+    return render(request, "products/products_edit.html", context)
+
+# View para VISUALIZAR objetos
+def product_detail_view(request, product_id):
+    try:
+        obj = Product.objects.get(id = product_id)
+    except Product.DoesNotExist:
+        raise Http404
+
+    context = {
+        'object': obj
+    }
     return render(request, "products/products_view.html", context)
 
-def product_all_view(request):
-    queryset = Product.objects.all()
-    context = {
-        'object_list' : queryset
-    }
-    return render(request, "products/products_all.html", context)
 
 # A manutenção/edição de um contexto com todos os campos do model não é muito eficiente
     '''context = {
