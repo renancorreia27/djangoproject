@@ -7,6 +7,6 @@
   <p><strong>Preço:</strong> R$ {{ object.price }}</p>
   <p><strong>Descrição:</strong> {{ object.description }}</p>
 
-  <button><a href="/product/edit/{{ object.id }}">Editar</a></button>
+  <button><a href="{{ object.edit_object }}">Editar</a></button>
   <button><a href="/product/">Voltar à lista</a></button>
 {% endblock %}

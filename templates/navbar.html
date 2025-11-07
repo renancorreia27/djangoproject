@@ -30,9 +30,8 @@
     <ul class="menu">
         <li><a href="{% url 'home' %}">HOME</a></li>
         <li><a href="{% url 'about' %}">ABOUT</a></li>
-        <li><a href="{% url 'create' %}">CREATE</a></li>
-        <li><a href="{% url 'view' 2 %}">VIEW</a></li>
-        <li><a href="{% url 'list' %}">LIST</a></li>
+        <li><a href="{% url 'products:create' %}">CREATE</a></li>
+        <li><a href="{% url 'products:list' %}">LIST</a></li>
     </ul>
 </body>
 </html>
